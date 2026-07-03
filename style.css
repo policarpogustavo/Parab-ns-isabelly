@@ -1,0 +1,177 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+min-height: 100vh;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+overflow-x: hidden;
+}
+
+.container {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 20px;
+text-align: center;
+}
+
+h1 {
+color: #7a1f3d;
+margin-bottom: 30px;
+font-size: 2rem;
+}
+
+.envelope {
+position: relative;
+width: 90%;
+max-width: 430px;
+height: 280px;
+background: #b8325f;
+border-radius: 10px;
+cursor: pointer;
+transition: 0.8s;
+box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.flap {
+position: absolute;
+top: 0;
+left: 0;
+border-left: 215px solid transparent;
+border-right: 215px solid transparent;
+border-top: 150px solid #d94f7d;
+transform-origin: top;
+transition: 0.8s;
+z-index: 3;
+}
+
+.letter {
+position: absolute;
+left: 50%;
+bottom: 10px;
+transform: translateX(-50%);
+width: 90%;
+max-height: 500px;
+background: #fffafc;
+border-radius: 10px;
+padding: 20px;
+opacity: 0;
+overflow-y: auto;
+transition: 1s;
+z-index: 2;
+text-align: left;
+color: #4a1f2d;
+}
+
+.letter h2 {
+text-align: center;
+margin-bottom: 15px;
+color: #b8325f;
+}
+
+.letter p {
+margin-bottom: 12px;
+line-height: 1.5;
+font-size: 0.95rem;
+}
+
+.signature {
+text-align: right;
+font-weight: bold;
+}
+
+.photo-area {
+width: 100%;
+height: 160px;
+border: 2px dashed #d94f7d;
+border-radius: 10px;
+margin-bottom: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #b8325f;
+font-size: 0.9rem;
+}
+
+.envelope.open {
+height: 650px;
+}
+
+.envelope.open .flap {
+transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+opacity: 1;
+bottom: 30px;
+}
+
+button {
+margin-top: 30px;
+padding: 12px 25px;
+border: none;
+border-radius: 25px;
+background: #7a1f3d;
+color: white;
+font-size: 1rem;
+cursor: pointer;
+}
+
+button:hover {
+background: #5f162f;
+}
+
+.hearts span {
+position: fixed;
+bottom: -20px;
+color: #ff2f6d;
+font-size: 24px;
+animation: subir 6s linear infinite;
+z-index: 0;
+}
+
+@keyframes subir {
+0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+100% {
+    transform: translateY(-110vh) scale(1.8);
+    opacity: 0;
+}
+}
+
+@media (max-width: 480px) {
+h1 {
+    font-size: 1.5rem;
+}
+
+.envelope {
+    max-width: 340px;
+}
+
+.flap {
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-top: 130px solid #d94f7d;
+}
+
+.letter p {
+    font-size: 0.9rem;
+}
+
+}
+
+.photo-area img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 10px;
+}
